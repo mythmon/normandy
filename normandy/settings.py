@@ -27,6 +27,7 @@ class Core(Configuration):
         'corsheaders',
         'django_filters',
         'dockerflow.django',
+        'graphene_django',
 
         'django.contrib.admin',
         'django.contrib.auth',
@@ -47,7 +48,7 @@ class Core(Configuration):
         'normandy.base.middleware.NormandyWhiteNoiseMiddleware',
         'normandy.base.middleware.NormandyCommonMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'csp.middleware.CSPMiddleware',
+        # 'csp.middleware.CSPMiddleware',
     ]
 
     ROOT_URLCONF = 'normandy.urls'
@@ -233,7 +234,7 @@ class Base(Core, CORS, OIDC):
     # Middleware that _most_ environments will need. Subclasses can override this list.
     EXTRA_MIDDLEWARE = [
         'django.contrib.sessions.middleware.SessionMiddleware',
-        'django.middleware.csrf.CsrfViewMiddleware',
+        # 'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
     ]

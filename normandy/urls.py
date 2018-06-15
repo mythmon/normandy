@@ -2,8 +2,11 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from rest_framework_swagger.views import get_swagger_view
 
+from rest_framework_swagger.views import get_swagger_view
+from graphene_django.views import GraphQLView
+
+from normandy.schema import schema
 
 urlpatterns = []
 
@@ -16,6 +19,7 @@ urlpatterns += [
     url(r'', include('normandy.selfrepair.urls')),
     url(r'', include('normandy.health.urls')),
     url(r'', include('normandy.studies.urls')),
+    url(r'^graphql', GraphQLView.as_view(graphiql=True, schema=schema)),
     url(r'api/docs/', get_swagger_view())
 ]
 
