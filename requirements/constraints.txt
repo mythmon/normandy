@@ -355,3 +355,6 @@ sphinxcontrib-jsmath==1.0.1 \
 sphinxcontrib-serializinghtml==1.1.1 \
     --hash=sha256:01d9b2617d7e8ddf7a00cae091f08f9fa4db587cc160b493141ee56710810932 \
     --hash=sha256:392187ac558863b8aff0d76dc78e0731fed58f3b06e2b00e22995dcdb630f213
+sqlparse==0.3.0 \
+    --hash=sha256:40afe6b8d4b1117e7dff5504d7a8ce07d9a1b15aeeade8a2d10f130a834f8177 \
+    --hash=sha256:7c3dca29c022744e95b547e867cee89f4fce4373f3549ccd8797d8eb52cdb873

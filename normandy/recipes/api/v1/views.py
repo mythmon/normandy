@@ -87,10 +87,16 @@ class RecipeViewSet(CachingViewsetMixin, viewsets.ReadOnlyModelViewSet):
         .select_related("latest_revision")
         .select_related("latest_revision__action")
         .select_related("latest_revision__approval_request")
+        .select_related("approved_revision")
+        .select_related("approved_revision__action")
+        .select_related("approved_revision__approval_request")
         # Many-to-many
         .prefetch_related("latest_revision__channels")
         .prefetch_related("latest_revision__countries")
         .prefetch_related("latest_revision__locales")
+        .prefetch_related("approved_revision__channels")
+        .prefetch_related("approved_revision__countries")
+        .prefetch_related("approved_revision__locales")
     )
     serializer_class = RecipeSerializer
     filterset_class = RecipeFilters
