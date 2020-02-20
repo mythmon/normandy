@@ -22,7 +22,8 @@ field, so the final JSON would look something like this:
 
 from rest_framework import serializers
 
-# If you add a new filter to this file, remember to update the docs too!
+# If you add a new filter to this file, remember to update the list of filters
+# in the doc file docs/user/filters.rst too!
 
 
 class BaseFilter(serializers.Serializer):
@@ -44,7 +45,11 @@ class BaseFilter(serializers.Serializer):
         raise NotImplementedError
 
     def to_jexl(self):
-        """Render this filter to a JEXL expression"""
+        """
+        Render this filter to a JEXL expression
+
+        :meta: private
+        """
         raise NotImplementedError
 
 
@@ -204,6 +209,8 @@ class BucketSampleFilter(BaseFilter):
        The total number of buckets considered in the space.
 
        :example: ``100``
+
+    :exclude-members: capabilities, to_jexl
     """
 
     type = "bucketSample"
@@ -320,22 +327,23 @@ class VersionRangeFilter(BaseFilter):
     The version range is half-open, like Python ranges: If min is 72 and max
     is 75, 72.0 will be include, 75.0 will not be. `min <= version < max`.
 
-    ..attribute:: type
-
-        ``version_range``
-
-    .. attribute:: min_version
-
-        :example: ``72.0b5``
-
-    .. attribute:: max_version
-
-        :example: ``75.0.1``
+    :autodoc_member_order: type, min_version, max_version
     """
 
     type = "version_range"
+    """The type of the filter."""
+
     min_version = serializers.CharField()
+    """
+    The smallest version, inclusive to be included. May include beta versions
+    (``72.0b5``) or dot releases (``85.0.2``).
+    """
+
     max_version = serializers.CharField()
+    """
+    The first version that will *not* be included. May include beta versions
+    (``72.0b5`` or dot releases ``85.0.2``).
+    """
 
     def to_jexl(self):
         min_version = self.initial_data["min_version"]

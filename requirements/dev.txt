@@ -1,4 +1,5 @@
 -r default.txt
+-r docs.txt
 
 asn1crypto==1.1.0 \
     --hash=sha256:5abe83e773026162e4869f4ac16edf7554f661e8cc0bb6d2be3bc6915456731b \
@@ -22,6 +23,9 @@ PyDriller==1.9.2 \
 pyOpenSSL==19.0.0 \
     --hash=sha256:c727930ad54b10fc157015014b666f2d8b41f70c0d03e83ab67624fd3dd5d1e6 \
     --hash=sha256:aeca66338f6de19d1aa46ed634c3b9ae519a64b458f8468aec688e7e3c20f200
+sphinx-autobuild==0.7.1 \
+    --hash=sha256:66388f81884666e3821edbe05dd53a0cfb68093873d17320d0610de8db28c74e \
+    --hash=sha256:e60aea0789cab02fa32ee63c7acae5ef41c06f1434d9fd0a74250a61f5994692
 therapist==2.0.0 \
     --hash=sha256:5f4e0a94f1a46b4773ad4d76fa4b9661f7cd8b3839613b94ee815759543512af \
     --hash=sha256:7fce693fcd2093777ac5b3661e048f20709c4fea13084b5e52e7e92bc10994fb

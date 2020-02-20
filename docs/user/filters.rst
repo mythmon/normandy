@@ -15,13 +15,8 @@ Filter Objects
 --------------
 
 .. automodule:: normandy.recipes.filters
-
-.. autoclass:: ChannelFilter()
-.. autoclass:: LocaleFilter()
-.. autoclass:: CountryFilter()
-.. autoclass:: BucketSampleFilter()
-.. autoclass:: StableSampleFilter()
-.. autoclass:: VersionFilter()
+   :members:
+   :exclude-members: BaseFilter
 
 Filter Expressions
 ------------------
